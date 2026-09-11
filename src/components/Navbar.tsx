@@ -7,7 +7,7 @@ function Navbar() {
           <img className="w-32" src={logo} alt="Devstack" />
         </div>
         <div>
-          <ul className="flex gap-3">
+          <ul className="flex gap-5">
             <li className="text-2 font-medium text-slate-600 hover:text-[#D91B7E]">
               Home
             </li>
