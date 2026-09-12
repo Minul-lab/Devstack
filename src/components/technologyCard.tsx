@@ -1,3 +1,5 @@
+import { useState } from "react"
+
 export interface cardProps {
     id: string
     name:string
@@ -12,6 +14,10 @@ export interface cardProps {
 
 
 function Card(props:cardProps) {
+  const [isStacked, setIsStacked] = useState(false)
+  const handleClick = () => {
+    setIsStacked(true)
+  }
   return (
     <section className="bg-white border border-slate-600 rounded-xl w-xs flex-col p-2">
       <div className="flex justify-between items-center mx-2 my-2">
@@ -36,8 +42,8 @@ function Card(props:cardProps) {
             <i className="fa-solid fa-star text-amber-400"></i>{props.rating}
           </p>
         </div>
-        <button className="bg-black text-white text-lg font-bold w-full  my-2 rounded-md p-2">
-          Add to stack
+        <button className={`bg-black text-white text-lg font-bold w-full  my-2 rounded-md p-2`} disabled={isStacked} onClick={handleClick}> 
+          {isStacked===true? "Added to Stack" : "Add to Stack"}
         </button>
       </div>
     </section>
