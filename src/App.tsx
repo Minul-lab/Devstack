@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Herosection";
-import Card from "./components/technologyCard";
+import Technologies from "./components/technologies";
+
 
 
 function App() {
@@ -8,7 +9,8 @@ function App() {
     <>
       <Navbar/>
       <Hero/>
-      <Card></Card>
+      <Technologies/>
+      
     </>
   ) ;
 }

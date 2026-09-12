@@ -1,4 +1,4 @@
-interface cardProps {
+export interface cardProps {
     id: string
     name:string
     category:string
@@ -11,30 +11,29 @@ interface cardProps {
 }
 
 
-function Card() {
+function Card(props:cardProps) {
   return (
     <section className="bg-white border border-slate-600 rounded-xl w-2xs flex-col p-2">
       <div className="flex justify-between items-center mx-2 my-2">
         <img
           className="w-6"
-          src="https://icon.icepanel.io/Technology/svg/React.svg"
+          src={props.icon}
           alt="logo"
         />
-        <p className="text-pink-600 bg-pink-100 p-1 rounded-full">Popular</p>
+        <p className="text-pink-600 text-sm bg-pink-100 p-1 rounded-xl">{props.badge}</p>
       </div>
       <div className="flex-col p-2">
-        <h1 className="text-lg font-bold">React</h1>
+        <h1 className="text-lg font-bold">{props.name}</h1>
         <p className="text-slate-600 my-1.5">
-          A declarative, component-based JavaScript library for building modern
-          user interfaces.
+          {props.description}
         </p>
         <div className="flex justify-between items-center mx-1.5 my-3">
           <p className="text-sm text-slate-600 bg-slate-200 p-1 rounded-sm">
-            Frontend
+            {props.category}
           </p>
-          <p className="text-sm text-slate-600">Beginner Friendly</p>
+          <p className="text-sm text-slate-600">{props.difficulty}</p>
           <p className="text-sm text-slate-600">
-            <i className="fa-solid fa-star text-amber-400"></i>Stars
+            <i className="fa-solid fa-star text-amber-400"></i>{props.rating}
           </p>
         </div>
         <button className="bg-black text-white text-lg font-bold w-full  my-2 rounded-md p-2">

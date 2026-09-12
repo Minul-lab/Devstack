@@ -1,25 +1,35 @@
-function Card() {
-    return (
-      <section>
-        <div>
-          <img src="" alt="logo" />
-          <p>Popular</p>
-        </div>
-        <div>
-          <h1>React</h1>
-          <p>
-            A declarative, component-based JavaScript library for building
-            modern user interfaces.
-          </p>
-          <div>
-            <p>Frontend</p>
-            <p>Beginner Friendly</p>
-            <p>Stars</p>
-          </div>
-          <button>Add to stack</button>
-        </div>
-      </section>
-    );
-}
+import {useEffect,useState } from "react"
+import type { cardProps } from "./technologyCard";
+import Card from "./technologyCard";
 
-export default Card;
+
+
+
+function Technologies(){
+    const [technologies, setTechnologies] = useState<cardProps[]>([]);
+    
+    useEffect(()=>{
+        async function fetchData() {
+            const res = await fetch("/Data/technologies.json");
+            const data = await res.json()
+            setTechnologies(data);  
+            
+            
+        }
+        fetchData();
+    },[])
+    // console.log(technologies)
+    
+    return (
+        <div className="grid grid-cols-3 gap-4 max-w-7xl m-auto">
+        {
+            technologies.map((technology) => {
+                return (
+                    <Card {...technology}/>
+                )
+            })
+        }
+        </div>
+    )
+}
+export default Technologies
