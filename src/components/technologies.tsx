@@ -6,9 +6,15 @@ import YourStack from "./yourStack";
 
 
 
+
+
+
 function Technologies(){
     const [technologies, setTechnologies] = useState<cardProps[]>([]);
-    const [stack,setStack] = useState<cardProps[]>([])    
+    const [stack,setStack] = useState<cardProps[]>([])
+    const handleAdd = (technology: cardProps) => {
+      setStack([...stack, technology]);
+    };    
     useEffect(()=>{
         async function fetchData() {
             const res = await fetch("/Data/technologies.json");
@@ -34,7 +40,9 @@ function Technologies(){
         <div className="flex justify-between gap-4">
           <div className="grid grid-cols-3 gap-4 ">
             {technologies.map((technology) => {
-              return <Card {...technology} />;
+              return (
+                <Card key={technology.id} {...technology} onAdd={handleAdd} />
+              );
             })}
           </div>
           <YourStack stack={stack}/>
