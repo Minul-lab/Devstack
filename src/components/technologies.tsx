@@ -14,7 +14,10 @@ function Technologies(){
     const [stack,setStack] = useState<cardProps[]>([])
     const handleAdd = (technology: cardProps) => {
       setStack([...stack, technology]);
-    };    
+    };
+    const handleRemove = (id: string) => {
+      setStack(stack.filter((technology) => technology.id !== id));
+    };  
     useEffect(()=>{
         async function fetchData() {
             const res = await fetch("/Data/technologies.json");
@@ -45,8 +48,7 @@ function Technologies(){
               );
             })}
           </div>
-          <YourStack stack={stack}/>
-          
+          <YourStack stack={stack} onRemove={handleRemove} />
         </div>
       </div>
     );
