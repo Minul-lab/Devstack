@@ -1,6 +1,6 @@
 function YourStack(){
     return (
-      <div className="bg-white border border-slate-400 rounded-xl w-2xs flex-col p-4">
+      <div className="bg-white border border-slate-400 rounded-xl w-2xs flex-col p-4 self-start">
         <h1 className="text-lg font-bold">Your Stack</h1>
         <h4 className="text-slate-400 my-1.5">2 Technology Selected</h4>
         <div className="flex w-full justify-between  bg-white border border-slate-400 items-center  rounded-xl p-3 my-2">

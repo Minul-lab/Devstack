@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Herosection";
-// import Technologies from "./components/technologies";
-import YourStack from "./components/yourStack";
+import Technologies from "./components/technologies";
+
 
 
 
@@ -10,7 +10,7 @@ function App() {
     <>
       <Navbar/>
       <Hero/>
-      
+      <Technologies/>
       
     </>
   ) ;

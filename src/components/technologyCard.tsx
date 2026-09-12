@@ -13,7 +13,7 @@ export interface cardProps {
 
 function Card(props:cardProps) {
   return (
-    <section className="bg-white border border-slate-600 rounded-xl w-2xs flex-col p-2">
+    <section className="bg-white border border-slate-600 rounded-xl w-xs flex-col p-2">
       <div className="flex justify-between items-center mx-2 my-2">
         <img
           className="w-6"
