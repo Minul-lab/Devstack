@@ -133,7 +133,7 @@
     "id": "docker",
     "name": "Docker",
     "category": "DevOps",
-    "description": "A platform designed to build, share, and run containerized applications reliably.",
+    "description": "A platform designed to build, share, and run containerized applications reliably. Enabling developers to ship faster.",
     "icon": "https://icon.icepanel.io/Technology/svg/Docker.svg",
     "rating": 4.9,
     "difficulty": "Intermediate",

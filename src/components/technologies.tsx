@@ -2,6 +2,7 @@ import {useEffect,useState } from "react"
 import type { cardProps } from "./technologyCard";
 import Card from "./technologyCard";
 import YourStack from "./yourStack";
+import { toast } from "react-toastify";
 
 
 
@@ -21,6 +22,7 @@ function Technologies(){
         if (alreadyExists) {
           return prevStack;
         }
+        toast.success(`${technology.name} added to your stack!`);
 
         return [...prevStack, technology];
       });
