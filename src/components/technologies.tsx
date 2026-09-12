@@ -13,11 +13,24 @@ function Technologies(){
     const [technologies, setTechnologies] = useState<cardProps[]>([]);
     const [stack,setStack] = useState<cardProps[]>([])
     const handleAdd = (technology: cardProps) => {
-      setStack([...stack, technology]);
+      setStack((prevStack) => {
+        const alreadyExists = prevStack.some(
+          (item) => item.id === technology.id,
+        );
+
+        if (alreadyExists) {
+          return prevStack;
+        }
+
+        return [...prevStack, technology];
+      });
     };
     const handleRemove = (id: string) => {
       setStack(stack.filter((technology) => technology.id !== id));
-    };  
+    };
+    const handleRemoveAll = () => {
+      setStack([]);
+    };
     useEffect(()=>{
         async function fetchData() {
             const res = await fetch("/Data/technologies.json");
@@ -44,11 +57,20 @@ function Technologies(){
           <div className="grid grid-cols-3 gap-4 ">
             {technologies.map((technology) => {
               return (
-                <Card key={technology.id} {...technology} onAdd={handleAdd} />
+                <Card
+                  key={technology.id}
+                  {...technology}
+                  onAdd={handleAdd}
+                  isAdded={stack.some((item) => item.id === technology.id)}
+                />
               );
             })}
           </div>
-          <YourStack stack={stack} onRemove={handleRemove} />
+          <YourStack
+            stack={stack}
+            onRemove={handleRemove}
+            onRemoveAll={handleRemoveAll}
+          />
         </div>
       </div>
     );

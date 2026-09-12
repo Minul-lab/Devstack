@@ -9,15 +9,21 @@ export interface cardProps {
   rating: number;
   difficulty: string;
   badge: string;
+  
 }
 interface CardProps extends cardProps {
   onAdd: (technology: cardProps) => void;
+  isAdded?: boolean;
 }
 
 function Card(props: CardProps) {
   
   return (
-    <section className="bg-white border border-slate-600 rounded-xl w-xs flex-col p-2">
+    <section
+      className={`bg-white rounded-xl w-xs flex-col p-2 transition ${
+        props.isAdded ? "border-2 border-[#FF5722]" : "border border-slate-600"
+      }`}
+    >
       <div className="flex justify-between items-center mx-2 my-2">
         <img className="w-6" src={props.icon} alt="logo" />
         <p className="text-pink-600 text-sm bg-pink-100 p-1 rounded-xl">
@@ -38,21 +44,15 @@ function Card(props: CardProps) {
           </p>
         </div>
         <button
-          className={`bg-black text-white text-lg font-bold w-full  my-2 rounded-md p-2`}
-          onClick={() =>
-            props.onAdd({
-              id: props.id,
-              name: props.name,
-              category: props.category,
-              description: props.description,
-              icon: props.icon,
-              rating: props.rating,
-              difficulty: props.difficulty,
-              badge: props.badge,
-            })
-          }
+          onClick={() => props.onAdd(props)}
+          disabled={props.isAdded}
+          className={`px-4 py-2 rounded-lg font-semibold border-2 transition w-full ${
+            props.isAdded
+              ? "border-[#FF5722] text-[#FF5722] bg-white cursor-not-allowed"
+              : "bg-slate-900 text-white hover:bg-white hover:border-[#FF5722] hover:text-[#FF5722] "
+          }`}
         >
-          add to Stack
+          {props.isAdded ? "Added to Stack" : "Add to Stack"}
         </button>
       </div>
     </section>
