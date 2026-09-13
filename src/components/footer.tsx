@@ -34,7 +34,7 @@ function Footer() {
           <p className="text-sm text-slate-500">Terms of Service</p>
         </div>
       </div>
-      <div className="flex justify-between max-w-7xl m-auto py-8 p-4">
+      <div className="flex justify-between max-w-7xl m-auto mb-12 py-8 p-4">
         <p className="text-sm text-slate-500">
           © 2026 DevStack All rights Reserver
         </p>
