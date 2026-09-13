@@ -52,7 +52,7 @@ function Card(props: CardProps) {
               : "bg-slate-900 text-white hover:bg-white hover:border-[#FF5722] hover:text-[#FF5722] "
           }`}
         >
-          {props.isAdded ? "Added to Stack" : "Add to Stack"}
+          {props.isAdded ? "✓ Added to Stack" : "Add to Stack"}
         </button>
       </div>
     </section>

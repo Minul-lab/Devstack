@@ -28,10 +28,17 @@ function Technologies(){
       });
     };
     const handleRemove = (id: string) => {
+      const technology = stack.find((item) => item.id === id);
+
       setStack(stack.filter((technology) => technology.id !== id));
+
+      if (technology) {
+        toast.info(`${technology.name} removed from your stack!`);
+      }
     };
     const handleRemoveAll = () => {
       setStack([]);
+      toast.info("All technologies removed from your stack!");
     };
     useEffect(()=>{
         async function fetchData() {
