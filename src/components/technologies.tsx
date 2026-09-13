@@ -48,15 +48,18 @@ function Technologies(){
     return (
       <div className="flex-col max-w-7xl m-auto py-5">
         <div className="flex-col">
-          <h1 className="text-5xl my-3 text-slate-900 font-bold">
-            Explore Technologies
+          <h1 className="text-3xl lg:text-5xl my-3 text-slate-900 font-bold text-center lg:text-left">
+            Explore{" "}
+            <span className="bg-linear-to-r from-[#FF5722] to-[#3c02a0] bg-clip-text text-transparent [-webkit-text-fill-color:transparent]">
+              Technologies
+            </span>
           </h1>
-          <p className="font-bold text-slate-400 my-3">
+          <p className="text-sm lg:text-base font-bold text-slate-400 my-3 text-center lg:text-left">
             Pick one technology per category to build your ideal stack.
           </p>
         </div>
-        <div className="flex justify-between gap-4">
-          <div className="grid grid-cols-3 gap-4 ">
+        <div className="flex flex-col lg:flex-row justify-between gap-4">
+          <div className="grid grid-cols-1 w-full self-center mx-auto sm:grid-cols-2 lg:grid-cols-3 gap-4 ">
             {technologies.map((technology) => {
               return (
                 <Card

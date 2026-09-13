@@ -20,7 +20,7 @@ function Card(props: CardProps) {
   
   return (
     <section
-      className={`bg-white rounded-xl w-xs flex-col p-2 transition ${
+      className={`bg-white rounded-xl w-[90%] lg:w-xs mx-auto flex-col p-2 transition ${
         props.isAdded ? "border-2 border-[#FF5722]" : "border border-slate-600"
       }`}
     >
