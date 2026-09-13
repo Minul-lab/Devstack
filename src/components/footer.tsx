@@ -36,7 +36,7 @@ function Footer() {
       </div>
       <div className="flex justify-between max-w-7xl m-auto py-8 p-4">
         <p className="text-sm text-slate-500">
-          2026 DevStack All rights Reserver
+          © 2026 DevStack All rights Reserver
         </p>
         <p className="text-sm text-slate-500">Privacy Terms</p>
       </div>
