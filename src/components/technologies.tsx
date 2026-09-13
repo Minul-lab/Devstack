@@ -13,6 +13,7 @@ import { toast } from "react-toastify";
 function Technologies(){
     const [technologies, setTechnologies] = useState<cardProps[]>([]);
     const [stack,setStack] = useState<cardProps[]>([])
+    const [loading, setLoading] = useState(true);
     const handleAdd = (technology: cardProps) => {
       setStack((prevStack) => {
         const alreadyExists = prevStack.some(
@@ -20,6 +21,7 @@ function Technologies(){
         );
 
         if (alreadyExists) {
+          toast.warning(`${technology.name} is already in your Stack`)
           return prevStack;
         }
         toast.success(`${technology.name} added to your stack!`);
@@ -44,12 +46,16 @@ function Technologies(){
         async function fetchData() {
             const res = await fetch("/Data/technologies.json");
             const data = await res.json()
-            setTechnologies(data);  
+            setTechnologies(data);
+             setLoading(false);
             
             
         }
         fetchData();
     },[])
+    if (loading) {
+      return <p className="text-center py-10">Loading technologies...</p>;
+    }
     // console.log(technologies)
     
     return (

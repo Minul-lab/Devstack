@@ -45,7 +45,7 @@ function Card(props: CardProps) {
         </div>
         <button
           onClick={() => props.onAdd(props)}
-          disabled={props.isAdded}
+          
           className={`px-4 py-2 rounded-lg font-semibold border-2 transition w-full ${
             props.isAdded
               ? "border-[#FF5722] text-[#FF5722] bg-white cursor-not-allowed"
