@@ -72,7 +72,7 @@ function Technologies(){
           </p>
         </div>
         <div className="flex flex-col lg:flex-row justify-between gap-4">
-          <div className="grid grid-cols-1 w-full self-center mx-auto sm:grid-cols-2 lg:grid-cols-3 gap-4 ">
+          <div className="grid grid-cols-1 w-full min-w-0 self-center mx-auto sm:grid-cols-2 xl:grid-cols-3 gap-4 ">
             {technologies.map((technology) => {
               return (
                 <Card
